@@ -16,13 +16,13 @@ public class PersonBuilder {
         return this;
     }
 
-    public PersonBuilder setAge (int age) throws IllegalArgumentException  {
-if (age > 0) {
-    this.age = age;
-    return this;
-} else {
-    throw new IllegalArgumentException("The age value incorrect!");
-}
+    public PersonBuilder setAge(int age) throws IllegalArgumentException {
+        if (age > 0) {
+            this.age = age;
+            return this;
+        } else {
+            throw new IllegalArgumentException("The age value incorrect!");
+        }
     }
 
     public PersonBuilder setAddress(String address) {
@@ -30,7 +30,7 @@ if (age > 0) {
         return this;
     }
 
-    public Person build() throws IllegalStateException  {
+    public Person build() throws IllegalStateException {
         OptionalInt optionalInt = OptionalInt.of(age);
         Person person = new Person(name, surname, optionalInt, address);
         if (person.checkBuilding()) {
